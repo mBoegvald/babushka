@@ -167,10 +167,25 @@
 
             }
         }
+
     </style>
 </head>
 
 <body>
+    <section id="modal">
+        <button class="close">X</button>
+        <div id="modal-content">
+
+            <img class="modal-billede" src="" alt="">
+            <div id="modal-boks">
+                <h2 class="modal-navn"></h2>
+                <span class="modal-beskrivelse"></span>
+            </div>
+        </div>
+    </section>
+
+
+
     <header>
 
         <nav>
@@ -199,6 +214,8 @@
     </template>
 
     <script>
+        let modal = document.querySelector("#modal");
+
         let retter;
         let dest = document.querySelector(".data-container");
         document.addEventListener("DOMContentLoaded", hentJson);
@@ -241,7 +258,7 @@
                     klon.querySelector(".data-pris").textContent = "Pris: " + retter.pris + ",-";
 
                     klon.querySelector("img").addEventListener("click", () => {
-                        window.location.href = "single.html?id=" + retter.id;
+                        visModal(retter);
                     });
 
 
@@ -255,6 +272,20 @@
                 }
             });
         }
+
+        function visModal(retten) {
+            modal.classList.add("vis");
+            modal.querySelector(".modal-navn").textContent = retten.navn;
+            modal.querySelector(".modal-billede").src = "imgs/large/" + retten.billede + ".jpg";
+            modal.querySelector(".modal-billede").alt = "Foto af" + retten.navn;
+            modal.querySelector(".modal-beskrivelse").textContent = retten.langbeskrivelse;
+            modal.querySelector("button").addEventListener("click", skjulModal);
+        }
+
+        function skjulModal() {
+            modal.classList.remove("vis");
+        }
+
     </script>
 </body>
 
