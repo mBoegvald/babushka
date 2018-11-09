@@ -51,7 +51,6 @@
                 grid-template-columns: repeat(1, 1fr);
             }
         }
-
     </style>
 </head>
 
@@ -79,19 +78,19 @@
 
 
         let retter;
-        let dest = document.querySelector(".data-container");
+        /*let dest = document.querySelector(".data-container");*/
         document.addEventListener("DOMContentLoaded", hentJson);
-        madFilter = "alle";
+        /* madFilter = "alle";*/
 
-        document.querySelectorAll(".menu-item").forEach(knap => {
+        /*document.querySelectorAll(".menu-item").forEach(knap => {
             knap.addEventListener("click", filtrering)
-        });
+        });*/
 
-        function filtrering() {
+        /*function filtrering() {
             dest.textContent = "";
             madFilter = this.getAttribute("data-kategori");
             visRetter();
-        }
+        }*/
 
 
         async function hentJson() {
@@ -120,7 +119,6 @@
         function goBack() {
             window.history.back();
         }
-
     </script>
 </body>
 
